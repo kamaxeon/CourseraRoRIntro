@@ -2,7 +2,7 @@
 
 # BASH_RC
 BASH_RC_FILE="/home/vagrant/.bashrc"
-RUN_AS_VAGRANT="su vagrant -c "
+RUN_AS_VAGRANT="su - vagrant -c "
 TMP_PATH="/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:$PATH"
 
 # rbenv
@@ -22,6 +22,8 @@ $RUN_AS_VAGRANT "PATH=$TMP_PATH rbenv global 2.2.2"
 
 # No documentation
 $RUN_AS_VAGRANT "echo \"gem: --no-document\" >> ~/.gemrc"
+$RUN_AS_VAGRANT "echo \"gemhome: /home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0\" >> ~/.gemrc"
+$RUN_AS_VAGRANT "echo \"gempath: /home/vagrant/.gem/ruby/2.2.0:/home/vagrant/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0\" >> ~/.gemrc"
 
 # Bundler
 
